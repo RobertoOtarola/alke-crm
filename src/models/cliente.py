@@ -25,6 +25,12 @@ class Cliente(ABC):
     def email(self):
         return self._email
 
+    # --- ESTO FALTABA ---
+    @property
+    def telefono(self):
+        return self._telefono
+    # --------------------
+
     @abstractmethod
     def mostrar_info(self) -> str:
         """Método polimórfico que deben implementar las subclases."""
