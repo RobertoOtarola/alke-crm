@@ -1,0 +1,129 @@
+@startuml diagrama_alke_crm
+skinparam classAttributeIconSize 0
+skinparam monochrome true
+title Diagrama de Clases - Alke CRM (MVP)
+
+' ==========================
+' CORE
+' ==========================
+package "Core" {
+
+    class AlkeCRMException {
+        + message: str
+        + code: int
+        + __init__(message: str, code: int)
+    }
+
+    class EmailInvalidoError
+    class TelefonoInvalidoError
+    class ClienteDuplicadoError
+
+    AlkeCRMException <|-- EmailInvalidoError
+    AlkeCRMException <|-- TelefonoInvalidoError
+    AlkeCRMException <|-- ClienteDuplicadoError
+}
+
+' ==========================
+' MODELS
+' ==========================
+package "Models" {
+
+    abstract class Cliente {
+        # id: int
+        # nombre: str
+        # email: str
+        # telefono: str
+        # direccion: str
+        + __init__(...)
+        + calcular_descuento(): float
+        + notificar(): void
+        + __str__(): str
+        + __eq__(other): bool
+    }
+
+    class ClienteRegular {
+        + calcular_descuento(): float
+    }
+
+    class ClientePremium {
+        - porcentaje_descuento: float
+        + calcular_descuento(): float
+    }
+
+    class ClienteCorporativo {
+        - nit: str
+        + calcular_descuento(): float
+    }
+
+    Cliente <|-- ClienteRegular
+    Cliente <|-- ClientePremium
+    Cliente <|-- ClienteCorporativo
+}
+
+' ==========================
+' VALIDATORS
+' ==========================
+package "Validators" {
+
+    class EmailValidator {
+        + validar(email: str): bool
+    }
+
+    class TelefonoValidator {
+        + validar(telefono: str): bool
+    }
+
+    class DireccionValidator {
+        + validar(direccion: str): bool
+    }
+}
+
+' ==========================
+' PERSISTENCE
+' ==========================
+package "Persistence" {
+
+    class Database {
+        - connection
+        + conectar()
+        + cerrar()
+    }
+
+    class ClienteRepository {
+        + crear(cliente: Cliente)
+        + obtener(id: int): Cliente
+        + actualizar(cliente: Cliente)
+        + eliminar(id: int)
+        + listar(): list
+    }
+
+    Database o-- ClienteRepository
+    ClienteRepository --> Cliente
+}
+
+' ==========================
+' SERVICES
+' ==========================
+package "Services" {
+
+    class ClienteService {
+        - repository: ClienteRepository
+        + crear_cliente(...)
+        + actualizar_cliente(...)
+        + eliminar_cliente(id: int)
+        + listar_clientes(): list
+    }
+
+    class ExportService {
+        + exportar_json(clientes: list)
+        + exportar_csv(clientes: list)
+    }
+
+    ClienteService --> ClienteRepository
+    ClienteService --> Cliente
+    ClienteService --> EmailValidator
+    ClienteService --> TelefonoValidator
+    ClienteService --> DireccionValidator
+}
+
+@enduml

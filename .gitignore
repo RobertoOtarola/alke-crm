@@ -2,3 +2,9 @@ venv/
 __pycache__/
 *.pyc
 .vscode/
+.DS_Store
+*.txt
+logs/
+NOTES.md
+AUDITORIA_TECNICA_ALKE_CRM_CLAUDE.md
+AUDITORIA_TECNICA_ALKE_CRM_CHATGPT.md
