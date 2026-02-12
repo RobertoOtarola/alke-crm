@@ -1,15 +1,18 @@
 from src.models.cliente import Cliente
 
 class ClienteRegular(Cliente):
-    def __init__(self, uid: int, nombre: str, email: str, telefono: str, empresa: str):
+    """
+    Representa un cliente estándar del sistema.
+    Hereda todos los atributos básicos de Cliente.
+    """
+    
+    def __init__(self, uid: int, nombre: str, email: str, telefono: str):
         super().__init__(uid, nombre, email, telefono)
-        self.empresa = empresa
 
     def mostrar_info(self) -> str:
-        return f"🏢 [CORPORATIVO] {self.empresa} - Contacto: {self._nombre} ({self._email})"
-
-    def to_dict(self) -> dict:
-        data = super().to_dict()
-        data['empresa'] = self.empresa
-        return data
+        """
+        Implementación polimórfica para cliente regular.
+        Muestra la información en formato estándar.
+        """
+        return f"👤 [REGULAR] {self.nombre} | Email: {self.email} | Tel: {self.telefono}"
     
