@@ -1,5 +1,11 @@
 # Alke CRM - Sistema de Gestión de Clientes (MVP) 🚀
 
+Curso: Desarrollo de Aplicaciones Fullstack Python Trainee (AM)
+Institución: SENCE
+OTEC: Pixelab
+Profesor: Ariel Rosenamnn
+Alumno: Roberto Otárola
+
 > ⚠️ **Nota de Versión (MVP):**
 > Este proyecto se entrega bajo la modalidad de **Producto Mínimo Viable**.
 > Siguiendo principios de desarrollo ágil, se ha priorizado la **robustez del Backend**, la **arquitectura Clean Code** y la **integridad de datos** (SQLite/Validaciones). 
@@ -42,8 +48,8 @@ Proveer una herramienta de línea de comandos (CLI) que permita el ciclo de vida
 
 1.  **Clonar el repositorio:**
     ```bash
-    git clone [https://github.com/tu-usuario/alke-crm-mvp.git](https://github.com/tu-usuario/alke-crm-mvp.git)
-    cd alke-crm-mvp
+    git clone [https://github.com/RobertoOtarola/alke-crm](https://github.com/RobertoOtarola/alke-crm)
+    cd alke-crm
     ```
 
 2.  **Crear entorno virtual:**
@@ -79,3 +85,6 @@ El proyecto sigue una arquitectura por capas para garantizar escalabilidad y man
 Para ejecutar las pruebas unitarias:
 ```bash
 pytest tests/ -v
+
+## 📊 Cobertura de Testing
+pytest --cov=src --cov-report=term
