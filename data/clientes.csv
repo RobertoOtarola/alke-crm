@@ -1,0 +1,6 @@
+uid,nombre,email,telefono,tipo,empresa,descuento
+1,Juan,juan@mail.com,123,ClienteRegular,,
+2,María,maria@mail.com,456,ClienteRegular,,
+3,Pedro,pedro@mail.com,789,ClienteRegular,,
+4,Ana,ana@mail.com,135,ClientePremium,,0.1
+5,Sostener,sostener@mail.com,246,ClienteCorporativo,Sostener Ltda.,

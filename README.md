@@ -1,5 +1,10 @@
 # Alke CRM - Sistema de Gestión de Clientes (MVP) 🚀
 
+> ⚠️ **Nota de Versión (MVP):**
+> Este proyecto se entrega bajo la modalidad de **Producto Mínimo Viable**.
+> Siguiendo principios de desarrollo ágil, se ha priorizado la **robustez del Backend**, la **arquitectura Clean Code** y la **integridad de datos** (SQLite/Validaciones). 
+> Las interfaces gráficas (GUI) y conexiones a APIs externas están planificadas para la "Fase 2" del roadmap, permitiendo una entrega funcional y testeable dentro del deadline crítico.
+
 ## 📋 Descripción del Proyecto
 **Alke CRM** es una solución de software robusta y modular desarrollada en Python 3 para la gestión eficiente de clientes de la empresa **Solution Tech**. 
 
